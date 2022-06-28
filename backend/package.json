@@ -1,0 +1,41 @@
+{
+  "name": "backend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon -r dotenv/config src/server.js | pino-pretty",
+    "lint": "eslint .",
+    "migrate": "east migrate",
+    "rollback": "east rollback",
+    "start": "node -r dotenv/config src/server.js",
+    "test": "jest",
+    "test:ci": "jest --ci --collectCoverage --passWithNoTests"
+  },
+  "eslintConfig": {
+    "env": {
+      "jest/globals": true,
+      "node": true
+    },
+    "extends": [
+      "airbnb-base"
+    ],
+    "plugins": [
+      "jest"
+    ]
+  },
+  "dependencies": {
+    "dotenv": "^16.0.1",
+    "east": "^2.0.3",
+    "express": "^4.18.1",
+    "mysql2": "^2.3.3",
+    "pino": "^8.0.0",
+    "pino-http": "^8.0.1"
+  },
+  "devDependencies": {
+    "eslint-plugin-jest": "^26.5.3",
+    "jest": "^28.1.1",
+    "nodemon": "^2.0.16",
+    "pino-pretty": "^8.0.0",
+    "supertest": "^6.2.3"
+  }
+}
