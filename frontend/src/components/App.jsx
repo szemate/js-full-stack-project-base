@@ -1,7 +1,7 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import UserList from './UserList';
 import NotFound from './NotFound';
-import './App.css';
+import './App.scss';
 
 function App() {
   return (

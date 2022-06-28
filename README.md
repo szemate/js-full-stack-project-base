@@ -14,6 +14,7 @@
 
 - [React](https://reactjs.org/) (with [Create React App](https://create-react-app.dev/))
 - [React Router](https://reactrouter.com/)
+- [SCSS](https://sass-lang.com/)
 
 ### Common
 
