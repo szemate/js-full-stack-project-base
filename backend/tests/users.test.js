@@ -1,36 +1,26 @@
 const request = require('supertest');
-const userService = require('../src/services/userService');
-
-jest.mock('../src/services/userService');
 const app = require('../src/app');
+const { User } = require('../src/models');
 
-beforeEach(() => {
-  jest.clearAllMocks();
+beforeEach(async () => {
+  await User.sync({ force: true }); // Clear the database
 });
 
 describe('GET /users/:id', () => {
   it('should return an existing user', async () => {
-    userService.getUser.mockResolvedValue({ id: 1, name: 'Jack' });
+    const alice = await User.create({ name: 'Alice' });
 
-    const res = await request(app).get('/api/users/8');
-
-    expect(userService.getUser.mock.calls.length).toBe(1);
-    expect(userService.getUser.mock.calls[0][0]).toBe(8);
+    const res = await request(app).get('/api/users/1');
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual({
-      id: 1,
-      name: 'Jack',
+      id: alice.id,
+      name: alice.name,
     });
   });
 
   it('should send 404 for non-existent user', async () => {
-    userService.getUser.mockResolvedValue(undefined);
-
-    const res = await request(app).get('/api/users/8');
-
-    expect(userService.getUser.mock.calls.length).toBe(1);
-    expect(userService.getUser.mock.calls[0][0]).toBe(8);
+    const res = await request(app).get('/api/users/1');
 
     expect(res.statusCode).toEqual(404);
     expect(res.body).toHaveProperty('message');

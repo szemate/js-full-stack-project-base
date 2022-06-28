@@ -1,17 +1,12 @@
-const db = require('../db');
+const { User } = require('../models');
 
 const userService = {
-  async getUsers() {
-    const [users] = await db.query('SELECT * FROM USERS');
-    return users;
+  getUsers() {
+    return User.findAll({ attributes: ['id', 'name'] });
   },
 
-  async getUser(userId) {
-    const [users] = await db.query(
-      'SELECT * FROM USERS WHERE id = ?',
-      [userId],
-    );
-    return users[0];
+  getUser(userId) {
+    return User.findByPk(userId, { attributes: ['id', 'name'] });
   },
 };
 

@@ -5,11 +5,10 @@
 ### Backend
 
 - [Express](https://expressjs.com/)
-- [MySQL2](https://sidorares.github.io/node-mysql2/)
-- [Jest](https://jestjs.io/)
-- [SuperTest](https://github.com/visionmedia/supertest)
+- [Sequelize](https://sequelize.org/) with [MySQL](https://sidorares.github.io/node-mysql2/)
+  ([SQLite](https://github.com/TryGhost/node-sqlite3) for integration tests)
+- [Jest](https://jestjs.io/) & [SuperTest](https://github.com/visionmedia/supertest)
 - [pino](https://getpino.io/)
-- [east](https://github.com/okv/east)
 
 ### Frontend
 
@@ -25,8 +24,6 @@
 
 - `npm run build`: Build the React frontend for production
 - `npm start`: Start the full stack in production mode
-- `npm run migrate`: Run database migrations
-- `npm run rollback`: Roll back database migrations
 - `npm run lint`: Run static code analysis
 - `npm run test`: Run automated tests
 - `npm run dev`: Start the full stack in development mode
