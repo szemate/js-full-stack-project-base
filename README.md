@@ -8,6 +8,7 @@
 - [Sequelize](https://sequelize.org/) with [MySQL](https://sidorares.github.io/node-mysql2/)
   ([SQLite](https://github.com/TryGhost/node-sqlite3) for integration tests)
 - [Jest](https://jestjs.io/) & [SuperTest](https://github.com/visionmedia/supertest)
+- [Helmet](https://helmetjs.github.io/)
 - [pino](https://getpino.io/)
 
 ### Frontend
