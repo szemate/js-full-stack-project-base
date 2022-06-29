@@ -7,6 +7,7 @@
 - [Express](https://expressjs.com/)
 - [MySQL2](https://sidorares.github.io/node-mysql2/)
 - [Jest](https://jestjs.io/) & [SuperTest](https://github.com/visionmedia/supertest)
+- [Helmet](https://helmetjs.github.io/)
 - [pino](https://getpino.io/)
 - [east](https://github.com/okv/east)
 

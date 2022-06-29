@@ -1,11 +1,14 @@
 const express = require('express');
-const requestLogger = require('pino-http');
+const loggerMiddleware = require('pino-http');
+const helmetMiddleware = require('helmet');
 const logger = require('./logger');
 const { apiRouter, staticRouter } = require('./routes');
 
 const app = express();
 
-app.use(requestLogger({ logger }));
+app.use(loggerMiddleware({ logger }));
+app.use(helmetMiddleware());
+
 app.use('/api', apiRouter);
 app.use(staticRouter);
 
