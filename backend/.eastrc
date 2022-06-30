@@ -4,6 +4,8 @@ const path = require('path');
 dotenv.config();
 
 module.exports = {
+  adapter: 'east-mysql',
   dir: path.join(__dirname, 'migrations'),
   template: path.join(__dirname, 'migrations', '.template.js'),
+  url: process.env.JAWSDB_URL || process.env.DATABASE_URL,
 }
