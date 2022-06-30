@@ -10,7 +10,7 @@ beforeEach(() => {
 
 describe('GET /users/:id', () => {
   it('should return an existing user', async () => {
-    userService.getUser.mockResolvedValue({ id: 1, name: 'Jack' });
+    userService.getUser.mockResolvedValue({ id: 8, name: 'Jack' });
 
     const res = await request(app).get('/api/users/8');
 
@@ -19,7 +19,7 @@ describe('GET /users/:id', () => {
 
     expect(res.statusCode).toEqual(200);
     expect(res.body).toEqual({
-      id: 1,
+      id: 8,
       name: 'Jack',
     });
   });

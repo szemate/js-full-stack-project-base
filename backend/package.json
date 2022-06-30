@@ -26,6 +26,7 @@
   "dependencies": {
     "dotenv": "^16.0.1",
     "east": "^2.0.3",
+    "east-mysql": "^0.3.0",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
     "mysql2": "^2.3.3",
