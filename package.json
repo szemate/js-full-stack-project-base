@@ -13,7 +13,8 @@
     "rollback": "npm run rollback -w backend",
     "dev": "concurrently \"npm run dev -w backend\" \"npm start -w frontend\"",
     "lint": "npm run lint -ws",
-    "test": "npm run test -w backend"
+    "test": "npm run test -ws",
+    "test:ci": "npm run test:ci -ws"
   },
   "devDependencies": {
     "concurrently": "^7.2.2",
