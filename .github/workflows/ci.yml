@@ -19,8 +19,8 @@ jobs:
           node-version: latest
           cache: npm
       - name: Install dependencies
-        run: npm install
+        run: npm clean-install
       - name: Lint
         run: npm run lint
       - name: Test
-        run: cd backend && npm run test:ci
+        run: npm run test:ci
