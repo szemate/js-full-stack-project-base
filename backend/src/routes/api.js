@@ -1,5 +1,5 @@
 const express = require('express');
-const apiErrorHandler = require('../middlewares/apiErrorHandler');
+const apiErrorHandler = require('../middlewares');
 const { userController } = require('../controllers');
 
 const router = express.Router();

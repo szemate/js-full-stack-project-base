@@ -1,18 +1,14 @@
 const db = require('../db');
 
-const userService = {
-  async getUsers() {
-    const [users] = await db.query('SELECT * FROM USERS');
-    return users;
-  },
-
-  async getUser(userId) {
-    const [users] = await db.query(
-      'SELECT * FROM USERS WHERE id = ?',
-      [userId],
-    );
-    return users[0];
-  },
+exports.getUsers = async () => {
+  const [users] = await db.query('SELECT * FROM USERS');
+  return users;
 };
 
-module.exports = userService;
+exports.getUser = async (userId) => {
+  const [users] = await db.query(
+    'SELECT * FROM USERS WHERE id = ?',
+    [userId],
+  );
+  return users[0];
+};
