@@ -1,4 +1,5 @@
 const request = require('supertest');
+const status = require('http-status');
 const userService = require('../src/services/userService');
 
 jest.mock('../src/services/userService');
@@ -17,7 +18,7 @@ describe('GET /users/:id', () => {
     expect(userService.getUser.mock.calls.length).toBe(1);
     expect(userService.getUser.mock.calls[0][0]).toBe(8);
 
-    expect(res.statusCode).toEqual(200);
+    expect(res.statusCode).toEqual(status.OK);
     expect(res.body).toEqual({
       id: 8,
       name: 'Jack',
@@ -32,7 +33,7 @@ describe('GET /users/:id', () => {
     expect(userService.getUser.mock.calls.length).toBe(1);
     expect(userService.getUser.mock.calls[0][0]).toBe(8);
 
-    expect(res.statusCode).toEqual(404);
+    expect(res.statusCode).toEqual(status.NOT_FOUND);
     expect(res.body).toHaveProperty('message');
   });
 });

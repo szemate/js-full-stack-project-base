@@ -29,6 +29,7 @@
     "east-mysql": "^0.3.0",
     "express": "^4.18.1",
     "helmet": "^5.1.0",
+    "http-status": "^1.5.2",
     "mysql2": "^2.3.3",
     "pino": "^8.0.0",
     "pino-http": "^8.0.1"

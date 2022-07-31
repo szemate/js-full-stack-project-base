@@ -9,8 +9,6 @@ const publicDir = path.resolve(
 
 router.use(express.static(publicDir));
 
-router.get('*', (req, res) => {
-  res.sendFile(path.join(publicDir, 'index.html'));
-});
+router.get('*', (req, res) => res.sendFile(path.join(publicDir, 'index.html')));
 
 module.exports = router;

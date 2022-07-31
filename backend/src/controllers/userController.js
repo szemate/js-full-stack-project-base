@@ -1,3 +1,4 @@
+const status = require('http-status');
 const { userService } = require('../services');
 
 exports.getUsers = async (req, res, next) => {
@@ -9,14 +10,16 @@ exports.getUsers = async (req, res, next) => {
     return next(err);
   }
 
-  return res.status(200).send(users);
+  return res.send(users);
 };
 
 exports.getUser = async (req, res, next) => {
   const userId = parseInt(req.params.userId, 10);
 
   if (Number.isNaN(userId)) {
-    return res.status(404).send({ message: 'Not found' });
+    return res
+      .status(status.NOT_FOUND)
+      .send({ message: status[status.NOT_FOUND] });
   }
 
   let user;
@@ -28,8 +31,10 @@ exports.getUser = async (req, res, next) => {
   }
 
   if (!user) {
-    return res.status(404).send({ message: 'Not found' });
+    return res
+      .status(status.NOT_FOUND)
+      .send({ message: status[status.NOT_FOUND] });
   }
 
-  return res.status(200).send(user);
+  return res.send(user);
 };

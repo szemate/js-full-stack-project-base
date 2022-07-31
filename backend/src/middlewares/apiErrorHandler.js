@@ -1,3 +1,4 @@
+const status = require('http-status');
 const logger = require('../logger');
 
 module.exports = (err, req, res, next) => {
@@ -7,7 +8,11 @@ module.exports = (err, req, res, next) => {
     return next(err);
   }
 
-  return res.status(500).send({
-    message: process.env.NODE_ENV === 'production' ? 'Server error' : err,
-  });
+  return res
+    .status(status.INTERNAL_SERVER_ERROR)
+    .send({
+      message: process.env.NODE_ENV === 'production'
+        ? status[status.INTERNAL_SERVER_ERROR]
+        : err,
+    });
 };
