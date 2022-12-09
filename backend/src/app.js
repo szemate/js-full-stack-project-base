@@ -13,10 +13,6 @@ app.response.sendStatus = function sendStatus(statusCode) {
   return this.status(statusCode).send({ message: status[statusCode] });
 };
 
-app.response.sendMessage = function sendMessage(message) {
-  return this.send({ message });
-};
-
 app.use(loggingMiddleware({ logger }));
 app.use(compressionMiddleware());
 app.use(helmetMiddleware());

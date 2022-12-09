@@ -17,7 +17,7 @@ export async function createUser(req, res, next) {
     return res.status(status.CREATED).send(user);
   } catch (err) {
     if (err instanceof errors.ValidationError) {
-      return res.status(status.BAD_REQUEST).sendMessage(err.message);
+      return res.status(status.BAD_REQUEST).send({ message: err.message });
     }
 
     return next(err);
