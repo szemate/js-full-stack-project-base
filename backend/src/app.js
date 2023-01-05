@@ -13,10 +13,12 @@ app.response.sendStatus = function sendStatus(statusCode) {
   return this.status(statusCode).send({ message: status[statusCode] });
 };
 
+// Middlewares
 app.use(loggingMiddleware({ logger }));
 app.use(compressionMiddleware());
 app.use(helmetMiddleware());
 
+// Routers
 app.use('/api', apiRouter);
 app.use(staticRouter);
 

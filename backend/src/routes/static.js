@@ -10,7 +10,7 @@ const publicDir = path.resolve(
 staticRouter.use(express.static(publicDir));
 
 staticRouter.get('/*', (req, res) => res.sendFile(
-  path.join(publicDir, 'index.html'),
+  path.join(publicDir, 'index.html'), // React frontend
 ));
 
 export default staticRouter;
