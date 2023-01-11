@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize';
 import logger from './logger';
 
-const databaseUrl = process.env.NODE_ENV === 'test' ? 'sqlite:memory:'
+const databaseUrl = process.env.NODE_ENV === 'test' ? 'sqlite:test.sqlite'
   : process.env.DATABASE_URL;
 
 if (!databaseUrl) {
