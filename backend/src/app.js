@@ -9,6 +9,7 @@ import staticRouter from './routes/static';
 
 const app = express();
 
+// Send the default status messages in JSON format
 app.response.sendStatus = function sendStatus(statusCode) {
   return this.status(statusCode).send({ message: status[statusCode] });
 };
@@ -18,7 +19,7 @@ app.use(loggingMiddleware({ logger }));
 app.use(compressionMiddleware());
 app.use(helmetMiddleware());
 
-// Routers
+// Routers by type
 app.use('/api', apiRouter);
 app.use(staticRouter);
 

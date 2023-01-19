@@ -8,7 +8,7 @@ const apiRouter = express.Router();
 // Middlewares that run before controllers
 apiRouter.use(express.json());
 
-// Controllers
+// Routers by resource
 apiRouter.use('/users', userRouter);
 
 // Middlewares that run after controllers

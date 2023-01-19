@@ -4,7 +4,7 @@ import logger from '../logger';
 
 export default function apiErrorHandler(err, req, res, next) {
   if (res.headersSent) {
-    return next(err);
+    return next(err); // Skip if a response has already been sent
   }
 
   if (err instanceof errors.ParameterError) {

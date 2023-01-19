@@ -9,7 +9,7 @@ if (!databaseUrl) {
 }
 
 const db = new Sequelize(databaseUrl, {
-  logging: (sql) => logger.debug(sql),
+  logging: (sql) => logger.debug(sql), // Log all SQL queries at DEBUG level
 });
 
 db.authenticate();
