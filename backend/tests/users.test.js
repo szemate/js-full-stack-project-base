@@ -56,3 +56,27 @@ describe('POST /api/users/', () => {
     expect(users).toEqual([]);
   });
 });
+
+describe('DELETE /api/users/:id', () => {
+  it('deletes an existing user', async () => {
+    const user = await userRepo.createUser({
+      name: 'Alice',
+      email: 'alice@inter.net',
+    });
+
+    const res = await request(app).delete(`${basePath}/{user.id}`).send();
+
+    expect(res.statusCode).toEqual(status.OK);
+    expect(res.body).toEqual(pick(user, ['id', 'name', 'email']));
+
+    const deletedUser = await userRepo.getUserById(user.id);
+    expect(deletedUser).toBeNull();
+  });
+
+  it('returns error for a non-existent user', async () => {
+    const res = await request(app).delete(`${basePath}/1`).send();
+
+    expect(res.statusCode).toEqual(status.NOT_FOUND);
+    expect(res.body).toHaveProperty('message');
+  });
+});
