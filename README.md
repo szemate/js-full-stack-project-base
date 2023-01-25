@@ -1,4 +1,7 @@
-# Template for JavaScript Full Stack Projects with React & Node.js
+# Template for JavaScript Full Stack Projects with Express & React
+
+Utilising Service Oriented Architecture and the Repository Pattern on the
+backend.
 
 ## Technologies
 
