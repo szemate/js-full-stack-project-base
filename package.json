@@ -10,7 +10,7 @@
   "scripts": {
     "build": "npm run build -ws",
     "start": "npm start -w backend",
-    "dev": "concurrently \"npm run dev -w backend\" \"npm start -w frontend\"",
+    "dev": "concurrently --kill-others \"npm run dev -w backend\" \"npm start -w frontend\"",
     "lint": "npm run lint -ws",
     "test": "npm run test:ci -ws"
   },
